@@ -1,3 +1,5 @@
+#https://machinelearningmastery.com/how-to-train-an-object-detection-model-with-keras/
+
 from xml.etree import ElementTree
 from os import listdir
 from  numpy import zeros
@@ -80,3 +82,11 @@ pyplot.imshow(image)
 pyplot.imshow(mask[:,:,0], cmap='gray', alpha=0.5)
 pyplot.show()
 
+for i in range(9):
+	pyplot.subplot(330+1+i)
+	image=train_set.load_image(i)
+	pyplot.imshow(image)
+	mas,_=train_set.load_mask(i)
+	for j in range(mask.shape[2]):
+		pyplot.imshow(mask[:,:,j], cmap='gray', alpha=0.3)
+pyplot.show()
